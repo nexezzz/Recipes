@@ -265,6 +265,7 @@ $(document).ready(function () {
     });
     /** Go back to recipes 2 **/
     $("#Goback_recipe_2").click(function () {
+        
         $("#add_new_recipe").fadeOut(500, function () {
             $("#boxes_content").fadeIn(500, function () {
                 $("#recipe_content").empty();
@@ -276,19 +277,22 @@ $(document).ready(function () {
             } else {
                 $(".text-block").css("display", "none");
             }
+            $("#content").fadeIn(500, function () {});
         });
         $("#Goback_recipe_1").fadeOut(500, function () {});
+        
         $("#noRecipeName").css("display", "none", "important");
     });
     /** Add new recipe **/
     $("#addNewRecipe").click(function () {
         $(".text-block").css("display", "none");
-        $("#Goback_recipe_1").fadeOut(500, function () {});
+        $("#Goback_recipe_1").fadeOut(300, function () {});
         // $(".navbar").fadeOut(500, function () {});
         $("#searchBar").hide();
         $("#Goback_recipe_2").show();
-        $("#boxes_content").fadeOut(500, function () {});
-        $("#recipe_details").fadeOut(500, function () {});
+        $("#boxes_content").fadeOut(300, function () {});
+        $("#content").fadeOut(300, function () {});
+        $("#recipe_details").fadeOut(300, function () {});
         $("#add_new_recipe").fadeIn(500, function () {});
         /** After every click on the button reset all fields **/
         restFileds();
@@ -443,6 +447,7 @@ $(document).ready(function () {
     $(document).on("click", "#saveRecipe", function () {
         var all_correct = 0;
         var empty_ingrd = 0;
+        $("#content").fadeIn(500, function () {});
         // checking if everything we need is filled
         if (all_correct !== 6) {
             window.scrollTo(0, 0);
