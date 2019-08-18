@@ -17,14 +17,14 @@ body {
     width: 80%;
     margin-left: 10%;
     box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.75);
-    height: 100%;
 }
 #add_new_recipe{
     display: none;
+    padding: 15px;
 }
 #Goback_recipe_2 {
     float:left;
-    margin-right: 2%;
+    margin-right: 5px;
     font-size:25px; 
     background-color: Transparent;
     background-repeat:no-repeat;
@@ -83,4 +83,7 @@ form{
 #ingridiant [for = "Chosen_ingridiants"],
 #ingridiant [for = "ingridiants"]{
     margin-top:1%;
+}
+#saveRecipe{
+    margin-bottom: 20px;
 }
