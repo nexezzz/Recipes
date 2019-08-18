@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recipes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- css files-->
+        <link rel="stylesheet" href="css/recipe.css">
+        <link rel="stylesheet" href="css/new_recipe.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <!-- js files-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src ="js/recipe_box.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+
+
+    </head>
+    <body>
+
+        <!-- NavBar-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li>
+                        <a class="navbar-brand inactiveLink" href="#">My Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type ="button"  id ="addNewRecipe" class="btn btn-primary">Enter new recipe</button><br>
+                    </li>
+                </ul>
+
+                <div class="active-cyan-3 active-cyan-4">
+                    <input id="searchBar" class="form-control" type="text" placeholder="Search recipe..." aria-label="Search">
+                </div>
+
+                <button id ="Goback_recipe_2" style = "display:none;">
+                    <i class="icon-chevron-left"></i>
+                </button>
+
+                <button id ="Goback_recipe_1" style = "display:none;">
+                    <i class="icon-chevron-left"></i>
+                </button>
+
+            </div>
+        </nav>
+
+
+        <div id="empty" class="text-block" style="display: none">
+            <h4>There are no recipes yet.</h4>
+            <p>Go to the add panel and craft your own.</p>
+        </div>
+        <div id="noRecipeName" class="noRecimeName" style="display: none">
+            <h4>No recipe with that name</h4>
+        </div>
+
+        <div id="content">
+            <!-- Recipe boxes-->
+            <div id="boxes_content"></div>
+        </div>
+        <!-- Recipe details-->
+        <div id="recipe_details">
+            <!-- Show selected recipe's content -->
+            <div id = "recipe_content"></div>
+        </div>
+
+        <!-- Add new recipe-->
+        <div id="add_new_recipe">           
+            <!-- Entry for new recipe -->
+            <div class = "New_recipe_box">
+                <form>
+                    <div class="form-row" >
+                        <div class="form-group col-md-6" style = "margin-top: 2%">
+                            <label for="name">Name: </label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Recipe name">
+                        </div>
+                        <div class="form-group col-md-6" style = "margin-top: 2%">
+                            <label for="source">Source: </label>
+                            <input type="text" class="form-control" id="inputSource" placeholder="Recipe source">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Pred_time">Preparation time:</label>
+                            <div class = "row">
+                                <div class = "col-md-3">
+                                    <input type="number" min="0" class="form-control without_ampm" id="prep_time_h" placeholder="Enter...">
+                                </div>
+                                <div class = "col-md-3">
+                                    <label for="Pred_time" style = "margin-top: 7%;">hours</label>
+                                </div>
+                                <div class = "col-md-3">
+                                    <input type="number" min="0" max="60" class="form-control" id="prep_time_m" placeholder="Enter...">                           
+                                </div>
+                                <div class = "col-md-3">
+                                    <label for="Pred_time" style = "margin-top: 7%;">minutes</label>
+                                </div>
+                            </div>
+                            <div id="ingridiant">
+                                <label for="ingridiants">Choose ingredients:</label><br>
+                                <div id="choose_ingrd" class = "row">
+                                    <button type ="button" class="btn btn-primary">Flour</button>
+                                    <button type ="button"  class="btn btn-primary">Milk</button>
+                                    <button type ="button"  class="btn btn-primary">Oil</button>
+                                    <button type ="button"  class="btn btn-primary">Salt</button>
+                                    <button type ="button"  class="btn btn-primary">Sugar</button>
+                                    <button type ="button"  class="btn btn-primary">Eggs</button>
+                                    <button type ="button"  class="btn btn-primary">Tomatoes</button>
+                                    <button type ="button" class="btn btn-primary">Peppers</button>
+                                    <button type ="button"  class="btn btn-primary">Cheese</button>
+                                    <button type ="button"  class="btn btn-primary">Potatoes</button>
+                                    <button type ="button"  class="btn btn-primary">Meat</button><br>
+                                </div>
+                                <input type="text" class="form-control" id="other_ingrd" placeholder="Other ingredient...">
+                                <label for="Chosen_ingridiants">Chosen ingredients: </label><br>
+                                <div id = "chosen_ingrd" class = "row"></div>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Pred_instruction">Preparation instruction:</label>
+                            <textarea class="form-control" id="pred_inst" placeholder="Preparation instruction" rows = "10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">                           
+                            <div  class="file btn btn-primary">
+                                <label for="exampleFormControlFile1">Choose image</label>
+                                <input id="RecipeImg_input" type="file" name="file">
+                            </div>
+                            <label>( optional )</label>
+                        </div>
+                        <div  class="form-group col-md-6">
+                            <img id ="RecipeImg" width="200"  src="img/recipe.png"  style ="margin-top:2%;" alt="your image" />
+                        </div>
+                    </div>  
+                    <button type="button" id="saveRecipe" data-toggle="modal"  class="btn btn-primary">Save Recipe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal for successfully saved recipe -->
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="modal_saved" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        The recipe has been successfully saved.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div
+        <!-- Modal to confirm deletation of recipe -->
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal" id="modal_delete_recipe" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">                   
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this recipe ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="Confirm_delete" data-dismiss="modal" class="btn btn-primary">Ok</button>
+                        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Return to Top -->
+        <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+        <!-- clear LocalStorage
+        <button id="test">Clear LocalStorage</button>-->
+    </body>
+</html>
