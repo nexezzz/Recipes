@@ -223,7 +223,7 @@ nav{
 
 #Goback_recipe_1 {
     float:left;
-    margin-right: 2%;
+    margin-right: 5px;
     font-size:25px; 
     background-color: Transparent;
     background-repeat:no-repeat;
@@ -276,11 +276,10 @@ nav{
 #recipe_content {
     background-color: white;
     color: black;
-    width: 80% !important;
+    width:100%;
     box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.75);
     height: 100%;
     padding: 10px;
-    margin-left: 10%;
     text-align: center;
 }
 #left_hand{
@@ -351,4 +350,8 @@ nav{
 }
 #deleteRecipe{
     margin-bottom: 2%;
+}
+/** id color in the list view **/
+.name label{
+    color:#125412 !important;
 }
